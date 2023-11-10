@@ -1,0 +1,27 @@
+<mat-card>
+  <mat-card-content>
+    <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+      <h2 class="text-heading-default">כניסה למערכת </h2>
+      <mat-error *ngIf="!loginValid()">
+        שם משתמש וסיסמה לא תקינים
+      </mat-error>
+      <mat-form-field appearance="fill">
+        <mat-label>שם משתמש</mat-label>
+        <input matInput [(ngModel)]="username" name="username" required>
+        <mat-icon matPrefix>person</mat-icon>
+        <mat-error>
+          חובה להזין שם משתמש
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>סיסמה</mat-label>
+        <input matInput type="password" placeholder="סיסמה" [(ngModel)]="password" name="password" required>
+        <mat-icon matPrefix>key</mat-icon>
+        <mat-error>
+          חובה להזין שם פרטי
+        </mat-error>
+      </mat-form-field>
+      <button mat-raised-button color="primary" [disabled]="!loginForm.form.valid">הכנס</button>
+    </form>
+  </mat-card-content>
+</mat-card>
